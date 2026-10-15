@@ -34,17 +34,17 @@
 <h2>4. 광고 (Google AdMob, 무료 이용자)</h2>
 <ul>
   <li>무료 이용자에게만 광고가 표시됩니다. 구독자에게는 광고가 나오지 않습니다. 광고 요청은 8항의 국외 이전 동의를 받은 뒤에만 보냅니다.</li>
-  <li>광고는 Google AdMob(Google Mobile Ads SDK)이 제공합니다. 광고 요청은 개인 맞춤 광고가 아닌 방식(비개인화, <code>npa=1</code>)으로 보내집니다.</li>
+  <li>광고는 Google AdMob(Google Mobile Ads SDK)이 제공합니다. 광고 요청은 개인 맞춤 광고가 아닌 방식(비개인화, <code>npa=1</code>)으로만 보내집니다. 이 앱은 이용자를 추적하지 않으며, 광고를 위해 이용자를 다른 회사의 앱이나 웹사이트에 걸쳐 추적하지 않습니다.</li>
   <li>AdMob SDK는 광고 제공과 측정을 위해 다음 정보를 수집할 수 있습니다: 기기 식별자(광고 식별자), 광고 데이터, 앱 사용 정보, 대략적인 위치(IP 주소로 추정), 성능·충돌·진단 정보. 이 정보는 Google의 처리 방식에 따라 Google로 전송됩니다.</li>
   <li>개인정보 보호 메시지(UMP 동의 양식)는 법률상 동의가 필요한 지역의 이용자에게만 광고 전에 동의를 묻기 위해 사용됩니다. 동의 상태는 기기에 저장됩니다.</li>
   <li>설정 &gt; <b>광고 동의 설정</b>에서 동의를 바꿀 수 있습니다. 이 메뉴는 무료 이용자에게 표시됩니다.</li>
 </ul>
 
-<h2>5. 앱 추적 허용 (ATT)</h2>
+<h2>5. 추적 없음 (앱 추적 허용 요청 없음)</h2>
 <ul>
-  <li>이 앱은 <b>추적(Tracking)을 하는 것으로</b> 답합니다. 광고 SDK는 광고 기기 식별자를 사용해 이용자를 다른 회사의 앱과 웹에 걸쳐 추적할 수 있으며, 이 기능은 iOS의 추적 허용 설정을 따릅니다.</li>
-  <li>iOS의 앱 추적 허용 요청은 한 번 표시됩니다. "추적 허용 안 함" 또는 "추적 없이 계속"을 선택해도 무료 루틴, 구독, 구입 복원에는 영향이 없습니다.</li>
-  <li>설정 &gt; <b>광고 추적 설정 열기</b>에서 iPhone 설정으로 이동해 변경할 수 있습니다.</li>
+  <li>이 앱은 이용자를 추적하지 않으며, iOS의 앱 추적 허용(ATT) 요청을 표시하지 않습니다.</li>
+  <li>광고는 개인 맞춤이 아닌 방식으로만 제공됩니다. 광고 식별자를 이용자의 다른 회사 앱이나 웹사이트 활동과 연결하지 않습니다.</li>
+  <li>앱 추적을 허용하거나 막는 설정 항목은 없으며, 이 앱은 추적 허용 여부에 따라 동작이 달라지지 않습니다.</li>
 </ul>
 
 <h2>6. 사용 통계 (TelemetryDeck, 익명)</h2>
@@ -95,7 +95,7 @@
 <h2>11. 이용자의 권리와 삭제</h2>
 <ul>
   <li>완료 기록: 설정 &gt; 기록 지우기.</li>
-  <li>광고 동의와 추적: 설정의 광고 항목 또는 iPhone 설정.</li>
+  <li>광고 동의: 설정의 광고 동의 설정 항목.</li>
   <li>사용 통계: 설정 &gt; 사용 통계.</li>
   <li>앱 전체 데이터: 앱 삭제.</li>
   <li>개발자는 이용자의 계정 정보를 보관하지 않습니다. 열람, 정정, 삭제 요청은 아래 연락처로 보내 주세요. 광고와 사용 통계 데이터는 각 수령자가 처리하므로, 해당 회사에 직접 요청해야 할 수도 있습니다.</li>
@@ -137,16 +137,17 @@
 <ul>
   <li>Ads are shown only to free users. Subscribers see no ads. Ad requests are sent only after you give the cross-border transfer consent in section 8.</li>
   <li>Ads are served by Google AdMob (Google Mobile Ads SDK). Ad requests are sent as non-personalized ads (<code>npa=1</code>).</li>
+  <li>The App does not track you, and it does not use advertising data to track you across other companies' apps and websites.</li>
   <li>The AdMob SDK may collect: device identifiers (advertising identifier), advertising data, product interaction, approximate location (estimated from IP address), and performance, crash, and diagnostic data. Google processes this according to its own terms.</li>
   <li>Google's consent messages (UMP) ask users for consent before ads load, only where required by law. Consent status is stored on the device.</li>
   <li>In <b>Settings &gt; Ad consent</b> you can change your consent. This entry appears for free users in every region.</li>
 </ul>
 
-<h2>5. App Tracking Transparency (ATT)</h2>
+<h2>5. No tracking (no App Tracking Transparency request)</h2>
 <ul>
-  <li>The App answers <b>Yes, it tracks</b>. The ad SDK may use the advertising identifier to track you across other companies' apps and websites. This follows your iOS tracking setting.</li>
-  <li>iOS shows the tracking permission request once. Choosing "Ask App Not to Track" or continuing without tracking does not affect free routines, subscriptions, or restoring purchases.</li>
-  <li>You can change it in <b>Settings &gt; Open Ad Tracking Settings</b>, which opens iPhone Settings.</li>
+  <li>The App does not track you, and it does not show the iOS App Tracking Transparency (ATT) request.</li>
+  <li>Ads are shown only in a non-personalized way. The advertising identifier is not linked to your activity in other companies' apps and websites.</li>
+  <li>There is no tracking setting in the App, and the App's behavior does not depend on any tracking permission.</li>
 </ul>
 
 <h2>6. Anonymous usage statistics (TelemetryDeck)</h2>
@@ -197,7 +198,7 @@
 <h2>11. Your choices and deletion</h2>
 <ul>
   <li>History: Settings &gt; Clear History.</li>
-  <li>Ad consent and tracking: the Settings ad section, or iPhone Settings.</li>
+  <li>Ad consent: the Settings ad consent item.</li>
   <li>Usage statistics: Settings &gt; Usage Statistics.</li>
   <li>All App data: delete the App.</li>
   <li>The Developer holds no account data. Send access, correction, or deletion requests to the contact below. Ad and usage-statistics data is processed by each recipient, so you may need to contact that company directly.</li>
