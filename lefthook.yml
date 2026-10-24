@@ -1,0 +1,8 @@
+pre-push:
+  piped: true
+  commands:
+    secrets:
+      run: git rev-parse --verify -q origin/main >/dev/null && gitleaks git --log-opts="origin/main..HEAD" --redact --no-banner .
+    public-identity:
+      # Everything here is public: author and committer must be the mistralfinch identity.
+      run: git rev-parse --verify -q origin/main >/dev/null && out=$(git log --format='%an <%ae>|%cn <%ce>' origin/main..HEAD) && test -z "$(printf '%s' "$out" | grep -vx 'mistralfinch <342790968+mistralfinch@users.noreply.github.com>|mistralfinch <342790968+mistralfinch@users.noreply.github.com>')"
