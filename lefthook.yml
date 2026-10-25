@@ -6,3 +6,15 @@ pre-push:
     public-identity:
       # Everything here is public: author and committer must be the mistralfinch identity.
       run: git rev-parse --verify -q origin/main >/dev/null && out=$(git log --format='%an <%ae>|%cn <%ce>' origin/main..HEAD) && test -z "$(printf '%s' "$out" | grep -vx 'mistralfinch <342790968+mistralfinch@users.noreply.github.com>|mistralfinch <342790968+mistralfinch@users.noreply.github.com>')"
+    reviewed-patch:
+      # Decision 0005: the pushed change must be the reviewed change. The reviewer's approval line in the
+      # task's ../review-ledger.md ends with `patch-id: <id>`, computed by this same command:
+      #   git diff origin/main...HEAD | git patch-id --stable | cut -d' ' -f1
+      # Any edit after review changes the id; a rebase onto a moved main keeps it. Advisory (WS-41): --no-verify bypasses it.
+      run: |
+        git rev-parse --verify -q origin/main >/dev/null || exit 0
+        test -n "$(git rev-list origin/main..HEAD)" || exit 0
+        p=$(git diff origin/main...HEAD | git patch-id --stable | cut -d' ' -f1)
+        l="$(git rev-parse --show-toplevel)/../review-ledger.md"
+        test -f "$l" || { echo "reviewed-patch: no ledger at $l; record approved-by: <reviewer> patch-id: $p" >&2; exit 1; }
+        grep -Eq "approved-by:.*patch-id: $p" "$l" || { echo "reviewed-patch: no approved-by line with patch-id: $p in $l (change edited after review, or never reviewed)" >&2; exit 1; }
