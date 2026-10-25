@@ -9,12 +9,13 @@ pre-push:
     reviewed-patch:
       # Decision 0005: the pushed change must be the reviewed change. The reviewer's approval line in the
       # task's ../review-ledger.md ends with `patch-id: <id>`, computed by this same command:
-      #   git diff origin/main...HEAD | git patch-id --stable | cut -d' ' -f1
-      # Any edit after review changes the id; a rebase onto a moved main keeps it. Advisory (WS-41): --no-verify bypasses it.
+      #   git diff -U0 origin/main...HEAD | git patch-id --stable | cut -d' ' -f1
+      # Any edit after review changes the id; -U0 keeps it stable across a clean rebase. Pending lines never count. Advisory (WS-41): --no-verify bypasses it.
       run: |
         git rev-parse --verify -q origin/main >/dev/null || exit 0
         test -n "$(git rev-list origin/main..HEAD)" || exit 0
-        p=$(git diff origin/main...HEAD | git patch-id --stable | cut -d' ' -f1)
+        p=$(git diff -U0 origin/main...HEAD | git patch-id --stable | cut -d' ' -f1)
+        test -n "$p" || exit 0
         l="$(git rev-parse --show-toplevel)/../review-ledger.md"
         test -f "$l" || { echo "reviewed-patch: no ledger at $l; record approved-by: <reviewer> patch-id: $p" >&2; exit 1; }
-        grep -Eq "approved-by:.*patch-id: $p" "$l" || { echo "reviewed-patch: no approved-by line with patch-id: $p in $l (change edited after review, or never reviewed)" >&2; exit 1; }
+        grep -E "approved-by:.*patch-id: $p[[:space:]]*$" "$l" | grep -vq "approved-by: pending" || { echo "reviewed-patch: no approved-by line with patch-id: $p in $l (change edited after review, or never reviewed)" >&2; exit 1; }
