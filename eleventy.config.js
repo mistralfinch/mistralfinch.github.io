@@ -4,7 +4,9 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy(".nojekyll");
   // Dated privacy page: served exactly as it was published.
   eleventyConfig.addPassthroughCopy("tumpyeo/privacy/2026-10-15");
+  eleventyConfig.addPassthroughCopy("tumpyeo/privacy/2026-11-25");
   eleventyConfig.ignores.add("tumpyeo/privacy/2026-10-15/**");
+  eleventyConfig.ignores.add("tumpyeo/privacy/2026-11-25/**");
 
   return {
     dir: {
