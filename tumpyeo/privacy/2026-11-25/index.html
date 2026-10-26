@@ -35,7 +35,7 @@
 
 <h2>4. 광고 (Google AdMob, 무료 이용자)</h2>
 <ul>
-  <li>무료 이용자에게만 광고가 표시됩니다. 구독자에게는 광고가 나오지 않습니다. 광고 요청은 8항의 국외 이전 동의를 받은 뒤에만 보냅니다.</li>
+  <li>광고가 켜져 있을 때 무료 이용자에게만 광고가 표시됩니다. 구독자에게는 광고가 나오지 않습니다. 광고 요청은 8항의 국외 이전 동의를 받은 뒤에만 보냅니다.</li>
   <li>광고는 Google AdMob(Google Mobile Ads SDK)이 제공합니다. 수집하는 주체는 Google LLC이며, 목적은 광고 제공 및 광고 측정입니다.</li>
   <li>AdMob SDK는 광고 제공과 측정을 위해 다음 정보를 수집할 수 있습니다: 기기 광고 식별자(IDFA, 앱 추적 허용을 허락하면 실제 값, 거부하면 모두 0인 값), 광고 데이터, 앱 사용 정보, 대략적인 위치(IP 주소로 추정), 성능·충돌·진단 정보. 이 정보는 Google의 처리 방식에 따라 Google로 전송됩니다.</li>
   <li>앱 추적 허용을 허락하면 광고 식별자가 Google에 전달되어 개인 맞춤 광고에 쓰일 수 있습니다. 허용하지 않으면 광고 요청은 개인 맞춤이 아닌 방식(비개인화, <code>npa=1</code>)으로만 보내집니다.</li>
@@ -45,7 +45,7 @@
 
 <h2>5. 앱 추적 허용 요청 (광고 식별자 추적)</h2>
 <ul>
-  <li>이 앱은 iOS의 앱 추적 허용(ATT) 요청을 띄웁니다. 허용하면 iOS가 기기의 광고 식별자(IDFA)를 앱에 알려주고, 앱 안의 광고 SDK가 그 값을 Google에 전달합니다. Google은 이 식별자를 광고 제공과 측정을 위해 다른 회사의 앱이나 웹사이트 활동과 연결할 수 있습니다(추적).</li>
+  <li>광고가 켜진 버전의 앱은 광고를 불러오기 전에 iOS 앱 추적 허용(ATT) 요청을 띄웁니다. 허용하면 iOS가 기기의 광고 식별자(IDFA)를 앱에 알려주고, 앱 안의 광고 SDK가 그 값을 Google에 전달합니다. Google은 이 식별자를 광고 제공과 측정을 위해 다른 회사의 앱이나 웹사이트 활동과 연결할 수 있습니다(추적).</li>
   <li>허용하지 않으면 iOS가 광고 식별자를 모두 0인 값으로 돌려주므로, 앱 안의 광고 SDK도 실제 광고 식별자를 받지 못합니다. 이 경우 광고는 개인 맞춤이 아닌 방식(<code>npa=1</code>)으로만 나갑니다.</li>
   <li>추적 허용 여부는 iPhone 설정 &gt; 개인정보 보호 및 보안 &gt; 추적에서도 바꿀 수 있습니다. 개발자는 앱에서 얻은 정보를 다른 회사의 정보와 결합하지 않고, 데이터 브로커에게 넘기지 않습니다(개발자의 약속입니다).</li>
   <li>광고 요청과 함께 Google에 전달되는 정보는 4항에 적은 대로 Google의 처리 방식에 따릅니다. Google이 그 정보를 다른 정보와 어떻게 연결하는지는 개발자가 확인하거나 보장할 수 없습니다.</li>
@@ -114,7 +114,7 @@
 </ul>
 
 <h2>13. 방침의 변경</h2>
-<p>방침이 바뀌면 시행일 7일 전에 앱과 이 페이지에 알립니다. 이용자에게 중요한 변경은 시행일 30일 전에 알립니다. 변경된 방침에는 새 시행일이 표시됩니다.</p>
+<p>방침이 바뀌면 시행일 7일 전에 이 페이지에 알립니다. 이용자에게 중요한 변경은 시행일 30일 전에 알립니다. 변경된 방침에는 새 시행일이 표시됩니다.</p>
 <p>변경 이력: 2026년 11월 25일, 4항과 5항을 바꿨습니다. 앱이 앱 추적 허용(ATT)을 묻고, 허용하면 기기 광고 식별자를 Google 광고에 쓰는 내용을 알립니다. 허용하지 않으면 비개인화 광고만 나갑니다. <a href="/tumpyeo/privacy/">지금 시행 중인 방침(2026년 10월 23일 시행)</a> · <a href="/tumpyeo/privacy/2026-10-15/">이전 방침(2026년 10월 15일 시행)</a></p>
 
 <div class="lang-en">
@@ -142,7 +142,7 @@
 
 <h2>4. Ads (Google AdMob, free users)</h2>
 <ul>
-  <li>Ads are shown only to free users. Subscribers see no ads. Ad requests are sent only after you give the cross-border transfer consent in section 8.</li>
+  <li>When ads are enabled, ads are shown only to free users. Subscribers see no ads. Ad requests are sent only after you give the cross-border transfer consent in section 8.</li>
   <li>Ads are served by Google AdMob (Google Mobile Ads SDK). The data is collected by Google LLC, for serving and measuring ads.</li>
   <li>The AdMob SDK may collect: the device advertising identifier (IDFA — the real value if you allow tracking, all zeros if you refuse), advertising data, product interaction, approximate location (estimated from IP address), and performance, crash, and diagnostic data. Google processes this according to its own terms.</li>
   <li>If you allow App Tracking Transparency, the advertising identifier is sent to Google and may be used for personalized ads. If you refuse, ad requests are sent only as non-personalized ads (<code>npa=1</code>).</li>
@@ -152,7 +152,7 @@
 
 <h2>5. App Tracking Transparency request (advertising-ID tracking)</h2>
 <ul>
-  <li>The App shows the iOS App Tracking Transparency (ATT) request. If you allow it, iOS gives the App the device advertising identifier (IDFA), and the ad SDK inside the App sends it to Google. Google may link this identifier with your activity in other companies' apps and websites to serve and measure ads (tracking).</li>
+  <li>Versions of the app that show ads ask for App Tracking Transparency permission before loading ads. If you allow it, iOS gives the App the device advertising identifier (IDFA), and the ad SDK inside the App sends it to Google. Google may link this identifier with your activity in other companies' apps and websites to serve and measure ads (tracking).</li>
   <li>If you refuse, iOS returns an all-zero advertising identifier, so the ad SDK inside the App does not get a real one. Ads are then shown only as non-personalized ads (<code>npa=1</code>).</li>
   <li>You can also change this in iPhone Settings &gt; Privacy &amp; Security &gt; Tracking. The Developer does not combine information from the App with other companies' data and does not pass it to data brokers (a commitment by the Developer).</li>
   <li>Information sent to Google with ad requests is handled under Google's own terms, as section 4 says. The Developer cannot verify or guarantee how Google links it with other information.</li>
@@ -221,7 +221,7 @@
 </ul>
 
 <h2>13. Changes</h2>
-<p>If this policy changes, the App and this page will announce it 7 days before the change takes effect. For important changes, the notice is given 30 days before. The changed policy shows its new effective date.</p>
+<p>If this policy changes, this page will announce it 7 days before the change takes effect. For important changes, the notice is given 30 days before. The changed policy shows its new effective date.</p>
 <p>Change history: on November 25, 2026, sections 4 and 5 were changed. The App asks for App Tracking Transparency (ATT); if allowed, the device advertising identifier is used for Google ads. If refused, only non-personalized ads are shown. <a href="/tumpyeo/privacy/">Current policy (effective October 23, 2026)</a> · <a href="/tumpyeo/privacy/2026-10-15/">Previous policy (effective October 15, 2026)</a></p>
 </div>
 </main>
